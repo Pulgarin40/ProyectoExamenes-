@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Subir Archivo Excel</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h1 class="title">Subir archivo excel</h1>
+            <p class="subtitle">Subir archivo excel</p>
+            <input type="file" id="fileInput" accept=".xls,.xlsx" onchange="updateFileName()" />
+            <button class="button purple" onclick="document.getElementById('fileInput').click()">Seleccionar archivo</button>
+            <button class="button purple" onclick="uploadFile()">Subir</button>
+            <button class="button red" onclick="goBack()">Salir</button>
+        </div>
+        <div class="right-section">
+            <p id="fileStatus">Ningún archivo seleccionado</p>
+        </div>
+    </div>
+
+    <script>
+        function updateFileName() {
+            const input = document.getElementById('fileInput');
+            const fileStatus = document.getElementById('fileStatus');
+            fileStatus.textContent = input.files.length > 0 ? 'Archivo cargado' : 'Ningún archivo seleccionado';
+        }
+
+        function uploadFile() {
+            const input = document.getElementById('fileInput');
+            if (input.files.length > 0) {
+                alert('Archivo subido correctamente'); // Aquí podrías manejar la lógica para subir el archivo
+            } else {
+                alert('Por favor selecciona un archivo antes de subir.');
+            }
+        }
+
+        function goBack() {
+            window.history.back(); // Regresar a la pantalla anterior
+        }
+    </script>
+</body>
+</html>
+
+
