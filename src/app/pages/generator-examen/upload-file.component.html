@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>Subir Archivo de Excel</h1>
+    <form (submit)="onSubmit($event)">
+      <label for="fileInput">Selecciona un archivo de Excel:</label><br>
+      <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".xls, .xlsx" required><br>
+      <button type="submit">Subir</button>
+    </form>
+  </div>
+  
