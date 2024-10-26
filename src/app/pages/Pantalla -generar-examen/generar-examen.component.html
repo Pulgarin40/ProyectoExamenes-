@@ -1,0 +1,6 @@
+<div>
+    <h2>Cargar Archivo Excel para Generar Exámenes</h2>
+    <input type="file" (change)="onFileChange($event)" />
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+  
