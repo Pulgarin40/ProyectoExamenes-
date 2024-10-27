@@ -1,0 +1,15 @@
+/* exam-uploader.component.css */
+div {
+    margin: 20px;
+  }
+  
+  input[type="file"] {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,6 @@
+<div>
+    <h2>Validar Formato</h2>
+    <input type="file" (change)="onFileChange($event)" />
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </div>
+  
