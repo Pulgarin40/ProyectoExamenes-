@@ -1,15 +1,31 @@
-/* exam-uploader.component.css */
-div {
-    margin: 20px;
-  }
-  
-  input[type="file"] {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .error {
-    color: red;
-    font-weight: bold;
-  }
-  
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc; /* Color y grosor del borde */
+  padding: 20px;
+  max-width: 90%; /* Mantiene la responsividad */
+  width: 600px; /* Ancho fijo para pantallas más grandes */
+  margin: 0 auto; /* Centra el contenedor en la pantalla */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+h2 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+input[type="file"] {
+  width: 100%; /* Ancho completo */
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
