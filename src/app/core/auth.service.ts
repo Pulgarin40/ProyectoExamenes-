@@ -1,18 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';  // Import para manejo de errores
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private authUrl = 'http://localhost:3000/auth'; // URL de tu API de autenticación
+  private authUrl = 'http://localhost:3000/auth'; 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient, 
+    private router: Router, 
+    @Inject(PLATFORM_ID) private platformId: Object // Inyección para verificar el entorno
+  ) {}
 
   get isAuthenticated(): Observable<boolean> {
     return this.isAuthenticatedSubject.asObservable();
@@ -20,10 +24,22 @@ export class AuthService {
 
   // Verificar si hay token al iniciar la app
   private hasToken(): boolean {
-    if (typeof localStorage !== 'undefined') {
-      return !!localStorage.getItem('token');
-    } else {
+    return this.isLocalStorageAvailable() && !!localStorage.getItem('token');
+  }
+
+  private isLocalStorageAvailable(): boolean {
+    // Verificar que estamos en un navegador
+    if (!isPlatformBrowser(this.platformId)) {
       console.warn('localStorage no está soportado en este entorno.');
+      return false;
+    }
+    try {
+      const test = 'test';
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch (e) {
+      console.warn('localStorage no está disponible en este navegador.');
       return false;
     }
   }
@@ -31,47 +47,49 @@ export class AuthService {
   login(credentials: { email: string; password: string }): Observable<any> {
     return this.http.post(`${this.authUrl}/login`, credentials).pipe(
       tap((response: any) => {
-        if (response.token) {
+        if (response.token && this.isLocalStorageAvailable()) {
           localStorage.setItem('token', response.token);
           this.isAuthenticatedSubject.next(true);
         }
       }),
       catchError(err => {
         console.error('Error en el login:', err);
-        return of({ error: 'Error al iniciar sesión, por favor verifica tus credenciales.' }); // Devolver un objeto de error
+        return of({ error: 'Error al iniciar sesión, por favor verifica tus credenciales.' });
       })
     );
   }
-  
 
-  register(user: { email: string; password: string; }, password: any): Observable<any> {
+  register(user: { email: string; password: string }): Observable<any> {
     return this.http.post(`${this.authUrl}/register`, user).pipe(
       catchError(err => {
         console.error('Error en el registro:', err);
-        return of({ error: 'Error al registrar el usuario. Inténtalo de nuevo.' }); // Devolver un objeto de error
+        return of({ error: 'Error al registrar el usuario. Inténtalo de nuevo.' });
       })
     );
   }
-  
 
   recoverPassword(email: string): Observable<any> {
     return this.http.post(`${this.authUrl}/recover-password`, { email }).pipe(
       catchError(err => {
         console.error('Error en recuperación de contraseña:', err);
-        return of(null); // Devuelve null en caso de error para manejarlo
+        return of(null);
       })
     );
   }
 
   logout() {
-    // Eliminar el token y marcar como no autenticado
-    localStorage.removeItem('token');
+    if (this.isLocalStorageAvailable()) {
+      localStorage.removeItem('token');
+    }
     this.isAuthenticatedSubject.next(false);
     this.router.navigate(['/login']);
   }
 
-  // Método para obtener el token almacenado
   getToken(): string | null {
-    return localStorage.getItem('token');
+    if (this.isLocalStorageAvailable()) {
+      return localStorage.getItem('token');
+    } else {
+      return null;
+    }
   }
 }

@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-my-component',
   standalone: true,
   imports: [
-    HttpClientModule
+    CommonModule
   ],
-  providers: [
-    { provide: HttpClient, useClass: HttpClient } // Proveedor válido para HttpClient
-  ],
+ 
   template: `
     <button (click)="fetchData()">Fetch Data</button>
   `
@@ -27,4 +26,16 @@ export class MyComponent {
         }
       });
   }
+
+  private isLocalStorageAvailable(): boolean {
+    try {
+      const test = 'test';
+      localStorage.setItem(test, test);
+      localStorage.removeItem(test);
+      return true;
+    } catch (e) {
+      return false;
+    }
+
+}
 }

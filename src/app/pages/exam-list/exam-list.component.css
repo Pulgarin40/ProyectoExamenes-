@@ -1,17 +1,82 @@
+/* Estilos adicionales para centrar el contenedor */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Ajustar la altura mínima para centrar verticalmente */
+  margin-top: 1rem; /* Añadir margen superior para separar del navbar */
+}
+
+/* Estilos para el menú de usuario */
+.user-menu {
+  position: relative;
+}
+
+.user-icon {
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+  /* Deja fuera la propiedad `display`, ya que Angular lo controla con *ngIf */
+}
+
+/* Mostrar el menú de usuario al pasar el ratón sobre .user-menu */
+.user-menu:hover .user-dropdown {
+  display: block;
+}
+
+.user-dropdown li a {
+  display: block;
+  padding: 10px 20px;
+  color: black;
+  text-decoration: none;
+}
+
+.user-dropdown li a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Estilos adicionales para centrar el contenedor */
 .drag-and-drop {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    text-align: center;
-    margin: 10px 0;
-  }
-  .error {
-    color: red;
-    font-weight: bold;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  table, th, td {
-    border: 1px solid black;
-  }
+  border: 2px dashed #ccc;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+  margin-top: 2rem; /* Añadir margen superior para separar del navbar */
+}
+
+.drag-and-drop:hover {
+  border-color: #333;
+}
+
+/* Estilos para la tabla responsiva */
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.responsive-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+/* Estilos para mensajes de error */
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
+}

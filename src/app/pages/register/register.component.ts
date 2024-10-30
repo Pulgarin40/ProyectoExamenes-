@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class RegisterComponent {
   registerForm: FormGroup;
   errorMessage: string | null = null;
+  showPassword =false;
+  showConfirmPassword = false;  
 
   constructor(
     private fb: FormBuilder,
@@ -28,6 +30,16 @@ export class RegisterComponent {
     });
   }
 
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
+
+  }
+
+  toggleShowConfirmPassword() {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
+
+
   onSubmit() {
     if (this.registerForm.valid) {
       const { email, password, confirmPassword } = this.registerForm.value;
@@ -35,12 +47,11 @@ export class RegisterComponent {
         this.errorMessage = 'Passwords do not match';
         return;
       }
-      this.authService.register({ email, password }, password).subscribe({
+      this.authService.register({ email, password }).subscribe({
         next: () => this.router.navigate(['/login']),
         error: (err) => this.errorMessage = 'Registration failed',
       });
     }
   }
 }
-
       
