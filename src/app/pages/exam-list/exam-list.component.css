@@ -4,38 +4,28 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh; /* Ajustar la altura mínima para centrar verticalmente */
-  margin-top: 1rem; /* Añadir margen superior para separar del navbar */
+  min-height: 60vh; /* Ajustar la altura mínima para centrar verticalmente */
+  margin-top: 7rem; /* Añadir margen superior para separar del navbar */
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para el menú de usuario */
-.user-menu {
-  position: relative;
+/* Estilos para la tabla responsiva */
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.user-icon {
-  font-size: 32px;
-  color: white;
-  cursor: pointer;
-  border-radius: 50%;
+.responsive-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
 }
 
-.user-dropdown {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: white;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  z-index: 1000;
-  /* Deja fuera la propiedad `display`, ya que Angular lo controla con *ngIf */
-}
-
-/* Mostrar el menú de usuario al pasar el ratón sobre .user-menu */
-.user-menu:hover .user-dropdown {
-  display: block;
+/* Estilos para mensajes de error */
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 
 .user-dropdown li a {
@@ -61,22 +51,4 @@
 
 .drag-and-drop:hover {
   border-color: #333;
-}
-
-/* Estilos para la tabla responsiva */
-.responsive-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.responsive-table td {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-}
-
-/* Estilos para mensajes de error */
-.error {
-  color: red;
-  font-weight: bold;
-  margin-top: 1rem;
 }

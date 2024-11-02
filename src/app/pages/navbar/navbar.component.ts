@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -21,5 +21,16 @@ export class NavbarComponent {
   toggleUserMenu() {
     // Implementación del método toggleUserMenu
     this.isUserMenuOpen = !this.isUserMenuOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    const userMenu = document.querySelector('.user-menu');
+    const userIcon = document.querySelector('.user-icon');
+
+    if (userMenu && userIcon && !userMenu.contains(target) && !userIcon.contains(target)) {
+      this.isUserMenuOpen = false;
+    }
   }
 }
