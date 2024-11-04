@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Contenedor principal del formulario */
+  .container {
+    width: 95%;
+    max-width: 600px; /* Ancho máximo */
+    margin: 0 auto;
+    padding: 2em; /* Espacio interno */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Sombra */
+    border-radius: 10px; /* Esquinas redondeadas */
+    background-color: #fff; /* Fondo blanco */
+    margin-top: 50px; /* Margen superior */
+  }
+  
+  /* Estilos para el título */
+  h2 {
+    text-align: center;
+    margin-bottom: 2em; /* Espacio debajo del título */
+  }
+  
+  /* Agrupación de formularios */
+  .form-group {
+    margin-top: 10px; /* Espacio superior */
+    margin-bottom: 2em; /* Espacio vertical entre campos */
+  }
+  
+  /* Estilos de los inputs y selects */
+  input.form-control,
+  select.form-control {
+    width: 100%; /* Ocupa todo el ancho */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 8px; /* Esquinas redondeadas */
+    font-size: 1em; /* Tamaño de fuente */
+    max-width: 250px; /* Cambia este valor para ajustar el ancho del campo */
+    margin: 0 auto; /* Centra horizontalmente el select */
+    display: block; /* Para asegurar que se trate como un bloque y pueda ser centrado */
+      }
+  /* Estilos para el botón */
+  button.btn {
+    display: block; /* Apilar el botón */
+    width: 100%; /* Ancho completo */
+    padding: 12px; /* Espaciado interno */
+    background-color: #6c63ff; /* Color del botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cursor al pasar */
+    font-size: 1em; /* Tamaño de fuente */
+    transition: background-color 0.3s ease; /* Transición suave */
+    margin-top: 20px; /* Margen superior */
+  }
+  
+  /* Efecto hover para el botón */
+  button.btn:hover {
+    background-color: #5146d9; /* Color más oscuro al pasar */
+  }
+  
+  /* Estilos para etiquetas */
+  label {
+    display: block; /* Que las etiquetas ocupen el ancho completo */
+    margin-bottom: 0.5em; /* Espacio debajo de la etiqueta */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Centrar texto */
+  }
+  .centered-select {
+    display: block;
+    margin: 0 auto; /* Centra el select horizontalmente */
+    text-align: center; /* Centra el texto dentro del select */
+    width: 100%; /* Asegura que el select ocupe el ancho completo */
+    max-width: 300px; /* Ajusta el ancho máximo según sea necesario */
+  }

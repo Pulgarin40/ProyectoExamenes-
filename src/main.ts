@@ -1,13 +1,14 @@
-import { appConfig } from './app/app.config';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';  // Asegúrate de importar esto
-import { provideRouter } from '@angular/router';
+import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    provideHttpClient() // Asegúrate de que HttpClient está proporcionado
+    provideHttpClient(withFetch()), 
+    ...appConfig.providers 
   ]
 }).catch(err => console.error(err));

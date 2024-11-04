@@ -11,19 +11,6 @@ import { CommonModule } from '@angular/common';
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function openPopup() {
   const popup = document.getElementById("popup");
   if (popup) {

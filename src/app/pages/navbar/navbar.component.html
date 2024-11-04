@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <ul class="navbar-menu">
+    <li><a routerLink="/exam-list" class="navbar-item">Home</a></li>
+    <li><a routerLink="/test-generator" class="navbar-item">Test Generator</a></li>
+    <li><a routerLink="/generate-questions" class="navbar-item">Generate Questions</a></li>
+    <li><a routerLink="/examination-generated" class="navbar-item">Examination Generated</a></li>
+    <li class="navbar-item user-menu" (click)="toggleUserMenu()">
+      <i class="fas fa-user-circle user-icon"></i>
+      <!-- Usa *ngIf para controlar la visibilidad -->
+      <ul class="user-dropdown" *ngIf="isUserMenuOpen">
+        <li><a href="#" (click)="logout(); $event.stopPropagation();">Cerrar Sesión</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>

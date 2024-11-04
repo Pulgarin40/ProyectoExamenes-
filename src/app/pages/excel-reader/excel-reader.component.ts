@@ -31,17 +31,10 @@ export class ExcelReaderComponent {
         const data = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
         // Extraer preguntas de la primera columna
-        this.extractQuestions(data);
+        this.questions = data.map((row: any) => row[0]).filter((question: any) => question);
       };
 
       reader.readAsBinaryString(file);
-    } else {
-      alert('Por favor, carga un archivo Excel válido (.xlsx o .xls).');
     }
-  }
-
-  // Método para extraer preguntas
-  private extractQuestions(data: any[]) {
-    this.questions = data.map(row => row[0]).filter(question => question);
   }
 }

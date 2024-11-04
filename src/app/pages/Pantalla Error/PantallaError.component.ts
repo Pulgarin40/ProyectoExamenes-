@@ -12,15 +12,6 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrls: ['./Pantalla.Error.Component.css' ,]
 }
 
-
-
-
-
-
-
-
-
 function goBack() {
     alert("Volviendo a la página anterior");
 }
-

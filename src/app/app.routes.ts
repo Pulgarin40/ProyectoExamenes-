@@ -5,7 +5,7 @@ import { RegisterComponent } from './pages/register/register.component'; // supo
 import { RecoverPasswordComponent } from './pages/recover-password/recover-password.component'; // si lo implementas
 import { AuthGuard } from './core/guards/auth.guard'; // si lo implementas
 import { TestGeneratorComponent } from './pages/test-generator/test-generator.component';
-import { ExcelReaderComponent } from './pages/excel-reader/excel-reader.component';
+import { ExcelReaderComponent } from './pages/excel-reader/excel-reader.component'; Grie
 import { Pantalla Exito } from './pages/Pantalla Exito/PantallaExito.component';
 
 export const routes: Routes = [

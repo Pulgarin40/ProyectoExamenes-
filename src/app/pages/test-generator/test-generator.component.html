@@ -1,0 +1,44 @@
+<app-navbar *ngIf="navbarVisible"></app-navbar>
+<div class="container">
+  <h2>Configuración de Examen</h2>
+  <form [formGroup]="examForm">
+    <!-- Número total de preguntas -->
+    <div class="form-group">
+      <label for="totalQuestions">Total de Preguntas:</label>
+      <select id="totalQuestions" formControlName="totalQuestions" class="form-control">
+        <option *ngFor="let number of maxQuestionsOptions" [value]="number">{{ number }}</option>
+      </select>
+    </div>
+
+
+    <!-- Campo de Selección de Materia -->
+    <div class="form-group">
+      <label for="subject">Materia:</label>
+      <select id="subject" formControlName="subject" class="form-control">
+        <option value="" disabled selected>Seleccione una materia</option>
+        <option *ngFor="let subject of subjects" [value]="subject">{{ subject }}</option>
+      </select>
+    </div>
+
+    <!-- Número de preguntas difíciles -->
+    <div class="form-group">
+      <label for="difficultQuestions">Número de preguntas difíciles:</label>
+      <select id="difficultQuestions" formControlName="difficultQuestions" class="form-control">
+        <option *ngFor="let number of difficultQuestionsOptions" [value]="number">{{ number }}</option>
+      </select>
+    </div>
+
+    <!-- Número de preguntas de verdadero y falso -->
+    <div class="form-group">
+      <label for="trueFalseQuestions">Número de preguntas de verdadero y falso:</label>
+      <select id="trueFalseQuestions" formControlName="trueFalseQuestions" class="form-control">
+        <option *ngFor="let number of trueFalseQuestionsOptions" [value]="number">{{ number }}</option>
+      </select>
+    </div>
+
+    <!-- Botón de enviar -->
+    <button type="submit" class="btn btn-primary" (click)="submitSettings()">
+      Generar Examen
+    </button>
+  </form>
+</div>
