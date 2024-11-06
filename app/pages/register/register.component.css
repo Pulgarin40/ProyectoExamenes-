@@ -1,0 +1,148 @@
+/* Jorge te he mejorado el CSS para hacer el registro responsivo, hay muchos comentarios para que veas donde debes manejar los cambios en un futuro y veas claro
+los detalles para un futuro */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor del registro con estilos responsivos */
+.register-container {
+  width: 95%; /* Ajusta el ancho para pantallas móviles */
+  max-width: 450px; /* Máximo ancho para evitar que se vea demasiado grande */
+  margin: 0 auto;
+  padding: 3em; /* Ajusta el padding para una mejor presentación */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Mejora la sombra para darle más profundidad */
+  border-radius: 10px; /* Aumenta el radio para darle un estilo más moderno */
+  text-align: center;
+  background-color: #fff;
+}
+
+.icon {
+  display: block;
+  margin: 0 auto 20px; /* Aumenta el espacio debajo del ícono */
+  text-align: center;
+  font-size: 5em; /* Ajusta el tamaño del ícono */
+  color: #6c63ff; /* Cambia el color del ícono para que sea consistente con el diseño general */
+}
+
+/* Estilos para el encabezado del formulario */
+h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+/* Estilos para los labels */
+label {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  text-align: left;
+  display: block;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Wrapper de iconos y entradas con margen ajustado para mejor visibilidad en pantallas pequeñas */
+.input-icon-wrapper {
+  display: flex;
+  position: relative;
+  margin-bottom: 1.5em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Estilos de input mejorados para pantallas pequeñas */
+input {
+  padding: 12px 50px 12px 50px; /* Ajusta el padding para evitar que el texto se superponga con los iconos */
+}
+
+/* Ajusta el tamaño de los íconos y los inputs para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .input-icon-wrapper input {
+    flex: 1;
+  }
+
+  .input-icon-wrapper i { 
+    margin-left: 10px;
+  }
+
+  .toggle-password {
+    margin-left: 10px;
+  }
+}
+
+
+.input-icon-wrapper i {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666; /* Color del ícono más suave */
+  font-size: 1.6em; /* Aumenta el tamaño del ícono para mejor visibilidad */
+}
+
+/* Botón para mostrar/ocultar contraseña alineado mejor */
+.toggle-password {
+  position: absolute;
+  right: 2vw;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6c63ff; /* Consistente con el esquema de color general */
+  cursor: pointer;
+  font-size: 1.em;
+  padding: 0;
+}
+
+.toggle-password i {
+  position: static;
+}
+
+.toggle-password:hover {
+  color: #5146d9; /* Color más oscuro al hacer hover */
+}
+
+.error {
+  color: red;
+  margin-top: 1em;
+  font-size: 0.9em; /* Ajusta el tamaño de la fuente para ser más discreto */
+}
+
+/* Botón de registro con ajustes para que se adapten a pantallas pequeñas */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background-color: #6c63ff; /* Cambia el color del botón para diferenciarlo */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease; /* Añade transición para el hover */
+}
+
+button[type="submit"]:hover {
+  background-color: #5146d9; /* Color más oscuro al hacer hover */
+}
+
+@media (min-width: 768px) {
+  /* Ajustes para pantallas más grandes */
+  .register-container {
+    padding: 4em;
+  }
+  .button-group {
+    flex-direction: row; /* Botones en línea para pantallas grandes */
+    gap: 20px;
+  }
+  .button-group button {
+    width: 48%;
+  }
+}

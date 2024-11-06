@@ -1,0 +1,26 @@
+<app-navbar *ngIf="navbarVisible"></app-navbar>
+
+<div class="container">
+  <h1>Selecciona Archivo</h1>
+  <div class="drag-and-drop" 
+       (dragover)="onDragOver($event)" 
+       (drop)="onDrop($event)" 
+       tabindex="0" 
+       aria-label="Arrastra y suelta un archivo Excel o PDF aquí o selecciona un archivo.">
+    Arrastra y suelta un archivo Excel o PDF aquí o selecciona un archivo.
+  </div>
+
+  <input type="file" (change)="onFileSelect($event)" accept=".xlsx,.xls,.pdf" aria-label="Selecciona un archivo Excel o PDF" />
+  <div *ngIf="errorMessage" class="error" role="alert">{{ errorMessage }}</div>
+</div>
+
+<table *ngIf="excelData.length > 0" class="responsive-table">
+  <tr *ngFor="let row of excelData">
+    <td *ngFor="let cell of row">{{ cell }}</td>
+  </tr>
+</table>
+
+<div *ngIf="pdfData" class="pdf-content">
+  <p>Contenido del archivo PDF:</p>
+  <iframe [src]="pdfData" width="100%" height="600px"></iframe>
+</div>

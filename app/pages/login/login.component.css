@@ -1,0 +1,172 @@
+/* Jorge te he mejorado el CSS para hacer el registro responsivo, hay muchos comentarios para que veas donde debes manejar los cambios en un futuro y veas claro
+los detalles para un futuro */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor del login con estilos responsivos */
+.login-container {
+  width: 350px;
+  width: 95%; /* Ajusta el ancho para pantallas móviles */
+  max-width: 450px; /* Máximo ancho para evitar que se vea demasiado grande */
+  margin: 0 auto;
+  padding: 4em;
+  padding: 3em; /* Ajusta el padding para una mejor presentación */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Mejora la sombra para darle más profundidad */
+  border-radius: 10px; /* Aumenta el radio para darle un estilo más moderno */
+  text-align: center;
+  background-color: #fff;
+}
+
+.icon {
+  display: block;
+  margin: 0 auto 10px;
+  margin: 0 auto 20px; /* Aumenta el espacio debajo del ícono */
+  text-align: center;
+  font-size: 2em;
+  font-size: 5em; /* Ajusta el tamaño del ícono */
+  color: #007bff; /* Añade color para darle más vida al ícono */
+}
+
+/* Wrapper de iconos y entradas con margen ajustado para mejor visibilidad en pantallas pequeñas */
+.input-icon-wrapper {
+  position: relative;
+  margin-bottom: 1.5em; /* Espacio entre cuadros */
+  margin-bottom: 1.5em;
+}
+
+/* Estilos de input mejorados para pantallas pequeñas */
+.input-icon-wrapper input {
+  padding: 10px 40px; /* Espacio a la izquierda y derecha para íconos */
+  height: 50px; /* Altura del cuadro de entrada */
+  border-radius: 4px; /* Esquinas redondeadas */
+  border: 1px solid #ccc; /* Bordes del cuadro */
+  font-size: 1em; /* Tamaño de fuente */
+  padding: 12px 50px; /* Aumenta el espacio para que el texto no esté pegado al ícono */
+  width: 100%; /* Se asegura que ocupe el 100% del contenedor */
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+.input-icon-wrapper i {
+  position: absolute;
+  left: 10px; /* Ajuste horizontal para el ícono */
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%); /* Centra verticalmente */
+  color: #000; /* Color del ícono */
+  font-size: 1.2em; /* Tamaño del ícono */
+  transform: translateY(-50%);
+  color: #666; /* Color del ícono más suave */
+  font-size: 1.6em; /* Aumenta el tamaño del ícono para mejor visibilidad */
+}
+
+/* Botón para mostrar/ocultar contraseña alineado mejor */
+.toggle-password {
+  position: absolute;
+  right: -15px; /* Pegado a la derecha */
+  top: 15%; /* Centrado verticalmente */
+  transform: translateY(-50%); /* Centra verticalmente el ícono */
+  right: 16px;
+  top: 10%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #007bff; /* Color del ícono */
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-size: 1.0em;
+  padding: 0;
+}
+
+.toggle-password i {
+  position: static;
+}
+.toggle-password:hover {
+  color: #0056b3; /* Color del ícono al pasar el cursor */
+  color: #0056b3;
+}
+
+.error {
+  color: red;
+  margin-top: 1em;
+  font-size: 0.9em; /* Ajusta el tamaño de la fuente para ser más discreto */
+}
+
+/* Grupo de botones con ajuste para que se adapten a pantallas pequeñas */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; /* Cambia a columna para pantallas pequeñas */
+  gap: 15px; /* Añade espacio entre los botones */
+  width: 100%;
+}
+
+.button-group button {
+  width: 48%;
+  padding: 10px;
+  background-color: #007bff;
+  width: 100%; /* Se asegura que cada botón ocupe el 100% */
+  padding: 14px;
+  background-color: #6c63ff; /* Cambia el color de los botones para diferenciarlos */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875em; /* Tamaño de fuente más pequeño */
+  font-size: 1em;
+  transition: background-color 0.3s ease; /* Añade transición para el hover */
+}
+
+.button-group button:hover {
+  background-color: #0056b3;
+  background-color: #5146d9; /* Color más oscuro al hacer hover */
+}
+
+/* Botones adicionales con estilos unificados */
+button {
+  padding: 10px;
+  padding: 14px;
+  margin-top: 20px;
+  background-color: #007bff;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875em; /* Tamaño de fuente más pequeño */
+  font-size: 1em;
+  transition: background-color 0.3s ease; /* Añade transición para el hover */
+}
+
+button:hover {
+  background-color: #0056b3;
+  background-color: #5146d9;
+}
+@media (min-width: 768px) {
+  /* Ajustes para pantallas más grandes */
+  .login-container {
+    padding: 4em;
+  }
+  .button-group {
+    flex-direction: row; /* Botones en línea para pantallas grandes */
+    gap: 20px;
+  }
+  .button-group button {
+    width: 48%;
+  }
+}
